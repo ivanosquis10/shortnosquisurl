@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
 
-import { GeistSans } from "geist/font/sans"
+// import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
 
 import "./globals.css"
+import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "shortnosquisurl",
@@ -13,10 +15,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body
-        className={`${GeistSans.className} container m-auto grid min-h-screen grid-rows-[auto,1fr,auto] bg-background px-4 font-sans antialiased`}
+        className={`${GeistMono.className} container relative m-auto grid min-h-screen grid-rows-[1fr,auto] bg-background px-4 font-mono antialiased`}
       >
-        <header className="text-xl font-bold leading-[4rem]">shortnosquisurl</header>
-        <main className="py-8">{children}</main>
+        <main className="mx-auto grid w-full max-w-3xl place-content-center py-8">
+          {children}
+          <Toaster closeButton duration={3000} position="top-right" />
+        </main>
         <footer className="text-center leading-[4rem] opacity-70">
           © {new Date().getFullYear()} shortnosquisurl
         </footer>

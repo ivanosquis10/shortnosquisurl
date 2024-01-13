@@ -1,4 +1,4 @@
-const {resolve} = require("node:path")
+const { resolve } = require("node:path")
 
 const project = resolve(__dirname, "tsconfig.json")
 
@@ -54,15 +54,16 @@ module.exports = {
     ],
     "padding-line-between-statements": [
       "warn",
-      {blankLine: "always", prev: "*", next: ["return", "export"]},
-      {blankLine: "always", prev: ["const", "let", "var"], next: "*"},
-      {blankLine: "any", prev: ["const", "let", "var"], next: ["const", "let", "var"]},
+      { blankLine: "always", prev: "*", next: ["return", "export"] },
+      { blankLine: "always", prev: ["const", "let", "var"], next: "*" },
+      { blankLine: "any", prev: ["const", "let", "var"], next: ["const", "let", "var"] },
     ],
     "no-console": "warn",
     "react/prop-types": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/self-closing-comp": "warn",
+    "no-console": "off",
     "react/jsx-sort-props": [
       "warn",
       {
@@ -78,6 +79,8 @@ module.exports = {
     "@typescript-eslint/require-await": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
