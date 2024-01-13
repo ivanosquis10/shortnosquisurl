@@ -38,9 +38,9 @@ export function UrlForm() {
     const { url } = data
 
     startTransition(async () => {
-      const data = await generateUrl({ url })
+      await generateUrl({ url })
 
-      console.log(data)
+      // console.log(data)
       reset()
     })
   }
