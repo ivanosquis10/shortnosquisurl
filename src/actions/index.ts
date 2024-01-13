@@ -31,7 +31,9 @@ export const generateUrl = async ({ url }: GenerateUrlProps) => {
 
     return newDocument
   } catch (error) {
-    console.log(error)
+    console.error("Error al generar la URL:", error)
+
+    return null
   }
 }
 
