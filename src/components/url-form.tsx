@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-no-leaked-render */
 "use client"
-
 import type { SubmitHandler } from "react-hook-form"
 
+import { Unlink } from "lucide-react"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -46,10 +46,13 @@ export function UrlForm() {
   }
 
   return (
-    <form className="flex gap-3" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="mx-auto flex max-w-2xl flex-col gap-3 md:flex-row"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <input
         className={cn(
-          "relative flex-1 rounded border border-zinc-900/25 bg-stone-100 p-2 shadow-xl focus:outline-none",
+          "relative flex-1 rounded border border-zinc-900/25 p-2 shadow-xl focus:outline-none",
           errors.url && "border-rose-500",
         )}
         id="url"
@@ -57,7 +60,16 @@ export function UrlForm() {
         type="text"
         {...register("url", { required: true })}
       />
-      <Button>{isPending ? "Generating..." : "Generate"}</Button>
+      <Button>
+        {isPending ? (
+          "Generating..."
+        ) : (
+          <>
+            {" "}
+            Generate <Unlink className="ml-2 h-4 w-4" />
+          </>
+        )}
+      </Button>
     </form>
   )
 }
