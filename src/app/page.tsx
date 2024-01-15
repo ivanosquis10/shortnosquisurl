@@ -2,7 +2,7 @@ import { UrlForm } from "@/components/url-form"
 
 export default function Home() {
   return (
-    <section className="mx-auto flex w-full max-w-6xl flex-col justify-center gap-8">
+    <section className="mx-auto flex w-full max-w-6xl flex-col justify-center gap-8 md:mt-20 md:justify-normal">
       <div className="custom_background" />
 
       <div className="text-center">
@@ -12,8 +12,6 @@ export default function Home() {
 
         <UrlForm />
       </div>
-
-      <div>result</div>
     </section>
   )
 }
