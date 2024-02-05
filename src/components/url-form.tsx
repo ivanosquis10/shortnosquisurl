@@ -14,7 +14,8 @@ import { Result } from "./result"
 
 export function UrlForm() {
   const [isPending, startTransition] = useTransition()
-  const { newUrl, errors, register, handleSubmit, generateAndSetUrl } = useFormUrl()
+  const { newUrl, errors, register, handleSubmit, generateAndSetUrl, resetFormResult } =
+    useFormUrl()
 
   const onSubmit: SubmitHandler<FormSchemaType> = async ({ url }) => {
     startTransition(async () => await generateAndSetUrl(url))
@@ -43,7 +44,9 @@ export function UrlForm() {
           )}
         </Button>
       </form>
-      <div className="h-36">{!isPending && newUrl !== "" && <Result newUrl={newUrl} />}</div>
+      <div className="h-36">
+        {!isPending && newUrl !== "" && <Result cleanResult={resetFormResult} newUrl={newUrl} />}
+      </div>
     </div>
   )
 }

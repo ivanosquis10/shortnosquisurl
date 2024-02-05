@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -27,6 +28,11 @@ export const useFormUrl = () => {
     reset()
   }
 
+  const resetFormResult = () => {
+    setNewUrl("")
+    reset()
+  }
+
   return {
     newUrl,
     register,
@@ -34,5 +40,6 @@ export const useFormUrl = () => {
     reset,
     errors,
     generateAndSetUrl,
+    resetFormResult,
   }
 }
